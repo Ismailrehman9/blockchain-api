@@ -84,9 +84,9 @@ curl https://your-deployment-url/api/predict/btc
 
 ## Market Data Source
 
-This API uses **Kraken** (public REST API, no key required) instead of Binance.
+This API uses **CryptoCompare** (public REST API, no key required) instead of Binance.
 
-Binance restricts access from many cloud server regions (including US-based hosting providers like Vercel and Render). Kraken's public API has no geo-restrictions, no authentication requirement, and returns full OHLCV (open/high/low/close/volume) candle data at hourly intervals — providing higher-quality inputs for technical analysis than price-only data sources.
+Binance blocks API access from most cloud server IPs — you'll get a geo-restriction error the moment you try to call it from Vercel, Render, or any US-based host. I went through a few alternatives and CryptoCompare turned out to be the most reliable: it's completely open, requires no API key for standard usage, and actually returns proper OHLCV candle data (open, high, low, close, volume) per hour — which gives the technical indicators real data to work with rather than just a closing price sequence.
 
 ---
 
