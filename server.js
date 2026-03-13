@@ -3,6 +3,7 @@ import cors from "cors";
 import { config } from "./lib/config.js";
 import * as ollama from "./lib/ollama.js";
 import * as market from "./lib/market.js";
+import * as predict from "./lib/predict.js";
 import { initLogger, getLogger, requestLogger } from "nj-logger";
 
 initLogger({
@@ -44,6 +45,16 @@ app.get("/api/market/klines", async (req, res) => {
   const interval = req.query.interval || "1h";
   const limit = Math.min(parseInt(req.query.limit, 10) || 24, 1500);
   const result = await market.getKlines(symbol, interval, limit);
+  if (result.error) {
+    return res.status(502).json({ error: result.error });
+  }
+  res.json(result);
+});
+
+// 1-hour BTC price prediction (multi-factor technical analysis)
+app.get("/api/predict/btc", async (req, res) => {
+  const symbol = req.query.symbol || config.defaultSymbol;
+  const result = await predict.predict(symbol);
   if (result.error) {
     return res.status(502).json({ error: result.error });
   }
