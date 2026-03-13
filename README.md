@@ -84,9 +84,9 @@ curl https://your-deployment-url/api/predict/btc
 
 ## Market Data Source
 
-This API uses **CoinGecko** (public API, no key required) instead of Binance.
+This API uses **Kraken** (public REST API, no key required) instead of Binance.
 
-Binance restricts access from many cloud server regions (including US-based hosting providers like Vercel and Render). CoinGecko's public API has no geo-restrictions, no rate-limit authentication, and provides the same historical OHLCV data needed for technical analysis — making it the reliable choice for cloud deployment.
+Binance restricts access from many cloud server regions (including US-based hosting providers like Vercel and Render). Kraken's public API has no geo-restrictions, no authentication requirement, and returns full OHLCV (open/high/low/close/volume) candle data at hourly intervals — providing higher-quality inputs for technical analysis than price-only data sources.
 
 ---
 
