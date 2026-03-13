@@ -8,6 +8,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "nj-logger": "^1.3.0"

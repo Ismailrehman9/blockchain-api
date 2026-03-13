@@ -17,9 +17,12 @@ Server runs at `http://localhost:3002`
 
 ```env
 PORT=3002
+ANTHROPIC_API_KEY=your_key_here   # get from console.anthropic.com
 BINANCE_BASE_URL=https://api.binance.com
 MARKET_SYMBOL=BTCUSDT
 ```
+
+> Without `ANTHROPIC_API_KEY` the endpoint still works — it falls back to linear regression (`methodology: "linear-regression"`).
 
 ---
 
