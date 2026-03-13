@@ -87,11 +87,15 @@ app.post("/api/ask", async (req, res) => {
   res.json({ answer: result.response });
 });
 
-app.listen(config.port, () => {
-  log.info("Backend running", {
-    port: config.port,
-    url: `http://localhost:${config.port}`,
-    ollamaBaseUrl: config.ollamaBaseUrl,
-    ollamaModel: config.ollamaModel,
+if (!process.env.VERCEL) {
+  app.listen(config.port, () => {
+    log.info("Backend running", {
+      port: config.port,
+      url: `http://localhost:${config.port}`,
+      ollamaBaseUrl: config.ollamaBaseUrl,
+      ollamaModel: config.ollamaModel,
+    });
   });
-});
+}
+
+export default app
