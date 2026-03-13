@@ -72,5 +72,3 @@ curl http://localhost:3002/api/predict/btc
 2. Create a Web Service on [render.com](https://render.com)
 3. Build command: `npm install` — Start command: `npm start`
 4. Add env vars from `.env.example`
-# blockchain-api
-# blockchain-api
